@@ -501,7 +501,7 @@
 
     /* Service cards with enhanced 3D hover effect */
     .service-card {
-      background: white;
+      background: hsl(0, 0%, 100%);
       padding: 2rem;
       border-radius: 12px;
       box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
@@ -608,12 +608,14 @@
     .value-card {
       text-align: center;
       padding: 2.5rem;
-      background: var(--light);
+      background: hsl(0, 0%, 100%);
       border-radius: 12px;
       transition: all 0.35s ease;
       position: relative;
       overflow: hidden;
       cursor: pointer;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+     
     }
 
     .value-card::after {
@@ -636,7 +638,7 @@
       background: var(--primary);
       color: white;
       transform: scale(1.08) rotateY(5deg);
-      box-shadow: 0 15px 40px rgba(5, 100, 83, 0.3);
+      box-shadow: 10px 25px 40px rgba(5, 100, 83, 0.3);
     }
 
     .value-card .number {
@@ -1305,7 +1307,7 @@
     }
     .font{
       font-weight: bold;
-      font-size: larger;
+      font-size: x-large;
     }
 
     /* Layout container for stats */
@@ -1349,4 +1351,95 @@
   .grid-responsive {
     grid-template-columns: repeat(4, 1fr);
   }
+}
+/* ... (Existing CSS from Segment 2) ... */
+
+/* Portfolio cards with complex hover animations (MODIFIED) */
+.portfolio-card {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0s ease;
+  position: relative;
+}
+
+.portfolio-card:hover {
+  /* MODIFIED BOX SHADOW: Huge colored shadow on the left */
+  transform: translateY(-12px);
+  box-shadow: 
+      -8px 0 0 0 var(--secondary), /* Bold left border/shadow */
+      0 15px 45px rgba(5, 100, 83, 0.25); /* Lifted shadow */
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+/* ... (Remaining CSS for portfolio/album/faq/contact sections) ... */
+
+/* --- NEW CSS FOR MOBILE MENU --- */
+
+.mobile-nav-toggle {
+    color: var(--primary);
+    font-size: 2.2rem;
+    cursor: pointer;
+    display: none; /* Hidden by default on desktop */
+    line-height: 0;
+    font-weight: bolder;
+    margin-left: 1rem;
+    z-index: 1002; /* Above everything */
+    transition: transform 0.3s ease;
+}
+
+/* Base mobile view (768px and below) */
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none; /* Hide desktop nav by default */
+    }
+
+    .mobile-nav-toggle {
+        display: block; /* Show hamburger icon */
+    }
+    
+    /* Styles for the mobile menu container (off-canvas) */
+    .nav-menu.mobile-active {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: -100%; /* Start off screen */
+        width: 70%;
+        max-width: 300px;
+        height: 100%;
+        background: white;
+        padding: 50px 20px;
+        box-shadow: -2px 0 20px rgba(0, 0, 0, 0.15);
+        transition: right 0.4s ease-in-out;
+        gap: 1.3rem;
+        z-index: 1001;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .nav-menu.mobile-active a {
+        font-size: 1.1rem;
+        padding: 0.8rem 1;
+        border-bottom: 1px solid #eee;
+        color: var(--primary);
+        font-weight: bold;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+   
+    /* When body has the mobile-menu-open class, slide the menu in */
+    body.mobile-menu-open .nav-menu.mobile-active {
+        right: 0;
+    }
+
+    /* Optional: Overlay background when menu is open */
+    body.mobile-menu-open::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 1000;
+    }
 }
