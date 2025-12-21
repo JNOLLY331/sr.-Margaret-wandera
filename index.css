@@ -30,7 +30,7 @@
 
     /* Enhanced header with stronger shadow and smooth transitions */
     header {
-      position: fixed;
+      position: sticky;
       top: 0;
       z-index: 1000;
       background: white;
