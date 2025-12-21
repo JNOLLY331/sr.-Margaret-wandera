@@ -448,19 +448,27 @@
       gap: 1.5rem;
       margin: 2rem 0;
     }
-
+    .features-list1 {
+      gap: 1.5rem;
+      font-weight: bold;
+      font-size: large;
+    }
     .feature-item {
       display: flex;
       gap: 1rem;
       transition: all 0.3s ease;
       padding: 0.5rem;
     }
+     .feature-item1{
+      transition: all 0.3s ease;
+      font-size: larger;
+     }
 
     .feature-item:hover {
       transform: translateX(10px);
     }
 
-    .feature-icon {
+    .feature-icon{
       width: 40px;
       height: 40px;
       background: var(--secondary);
@@ -471,6 +479,26 @@
       color: white;
       flex-shrink: 0;
       transition: all 0.3s ease;
+    }
+    .feature-icon2 {
+      background-color:orange;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      flex-shrink: 0;
+      margin-right: 7px;
+     
+
+    }
+    .feature-item1:hover .feature-icon2 {
+      background: hwb(91 41% 0%);
+      transform: rotate(360deg);
     }
 
     .feature-item:hover .feature-icon {
@@ -504,7 +532,7 @@
       background: hsl(0, 0%, 100%);
       padding: 2rem;
       border-radius: 12px;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+      box-shadow: 12px 0px 12px rgba(0, 0, 0, 0.08);
       transition: all 0.35s cubic-bezier(0.23, 1, 0.320, 1);
       position: relative;
       overflow: hidden;
@@ -614,7 +642,7 @@
       position: relative;
       overflow: hidden;
       cursor: pointer;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+      box-shadow:12px 0px 12px rgba(0, 0, 0, 0.08);
      
     }
 
@@ -1443,3 +1471,114 @@
         z-index: 1000;
     }
 }
+
+ /* LIGHTBOX STYLES */
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .lightbox.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .lightbox-content {
+      position: relative;
+      max-width: 90%;
+      max-height: 90%;
+      animation: zoomIn 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+    }
+
+    @keyframes zoomIn {
+      from {
+        transform: scale(0.5);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .lightbox-content img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 20px 80px rgba(0, 0, 0, 0.5);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: -50px;
+      right: 0;
+      font-size: 3rem;
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      background: var(--secondary);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+    }
+
+    .lightbox-close:hover {
+      transform: rotate(90deg) scale(1.1);
+      background: var(--accent);
+    }
+
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 3rem;
+      color: white;
+      cursor: pointer;
+      background: rgba(0, 163, 136, 0.8);
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .lightbox-nav:hover {
+      background: var(--accent);
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .lightbox-prev {
+      left: 20px;
+    }
+
+    .lightbox-next {
+      right: 20px;
+    }
+
+    .lightbox-caption {
+      position: absolute;
+      bottom: -60px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      color: white;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }

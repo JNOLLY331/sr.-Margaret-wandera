@@ -30,7 +30,7 @@ function startCountdown() {
 }
 
 /* --- Helper Function for Counter Animation --- */
-const animateCounter = (element, target, duration = 2500) => {
+const animateCounter = (element, target, duration = 1500) => {
     let current = 0;
     const increment = target / (duration / 16);
     
@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
         slidesPerView: 1,
         spaceBetween: 20,
         autoplay: {
-            delay: 5000,
+            delay: 4000,
             disableOnInteraction: false,
         },
         pagination: {
@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (window.AOS) {
         AOS.init({
             duration: 1000,
-            once: true,
+            once: false,
             mirror: true,
             offset: 100,
         });
@@ -184,3 +184,76 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+  /* --- LIGHTBOX FUNCTIONALITY --- */
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxCaption = document.getElementById('lightbox-caption');
+        const lightboxClose = document.getElementById('lightbox-close');
+        const lightboxPrev = document.getElementById('lightbox-prev');
+        const lightboxNext = document.getElementById('lightbox-next');
+        
+        let currentImageIndex = 0;
+        let imageElements = [];
+
+        // Get all family images
+        const familyImages = document.querySelectorAll('.lightbox-trigger');
+        
+        familyImages.forEach((trigger, index) => {
+            imageElements.push({
+                src: trigger.getAttribute('data-src'),
+                caption: trigger.getAttribute('data-caption')
+            });
+
+            trigger.addEventListener('click', (e) => {
+                e.preventDefault();
+                currentImageIndex = index;
+                openLightbox();
+            });
+        });
+
+        function openLightbox() {
+            lightbox.classList.add('active');
+            updateLightboxImage();
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+        }
+
+        function updateLightboxImage() {
+            lightboxImg.src = imageElements[currentImageIndex].src;
+            lightboxCaption.textContent = imageElements[currentImageIndex].caption;
+        }
+
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % imageElements.length;
+            updateLightboxImage();
+        }
+
+        function prevImage() {
+            currentImageIndex = (currentImageIndex - 1 + imageElements.length) % imageElements.length;
+            updateLightboxImage();
+        }
+
+        // Event listeners
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightboxNext.addEventListener('click', nextImage);
+        lightboxPrev.addEventListener('click', prevImage);
+
+        // Close on background click
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowRight') nextImage();
+            if (e.key === 'ArrowLeft') prevImage();
+        });
+    
