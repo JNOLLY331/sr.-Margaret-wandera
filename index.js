@@ -1,3 +1,10 @@
+
+  window.addEventListener("scroll", () => {
+    const header = document.querySelector("header");
+    header.classList.toggle("scrolled", window.scrollY > 50);
+  });
+
+
 /* --- Counter & Countdown Logic --- */
 function startCountdown() {
     const eventDate = new Date('2025-12-30T00:00:00').getTime();
