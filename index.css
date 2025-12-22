@@ -37,13 +37,15 @@ h6 {
 
 /* Enhanced header with stronger shadow and smooth transitions */
 header {
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 1000;
   background: white;
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.12);
-  padding: 1rem 0;
+  padding: 0.4rem 0;
   transition: all 0.3s ease;
+  width: 100%;
+  
 }
 
 header.scrolled {
@@ -90,7 +92,7 @@ header:hover {
   display: flex;
   gap: 2rem;
   list-style: none;
-}
+  }
 
 /* Navigation links with underline animation on hover */
 .nav-menu a {
@@ -100,6 +102,8 @@ header:hover {
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  padding: 5px 0; /* Add this to give the underline space */
+  display: inline-block; /* Helps with positioning */
 }
 
 .nav-menu a::after {
@@ -115,6 +119,7 @@ header:hover {
 
 .nav-menu a:hover::after {
   width: 100%;
+  cursor: pointer;
 }
 
 .profile-img {
@@ -1713,10 +1718,9 @@ section {
   align-items: center;
   z-index: 10000;
   font-size: xx-large;
-
+  pointer-events: auto;
   /* Smooth entry from the top */
   transition: all 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28);
-
   /* Super Cool Shadow from our previous step */
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
     0 4px 6px -2px rgba(0, 0, 0, 0.05);
@@ -1726,6 +1730,7 @@ section {
 .toast.hidden {
   top: -100px;
   opacity: 0;
+  pointer-events: none;
 }
 
 /* Media Query for Mobile Devices */
