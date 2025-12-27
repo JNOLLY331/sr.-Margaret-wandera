@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sister Margret Wandera - Jubilee Celebration</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gold: #d4af37;
+            --deep-blue: #1a2a6c;
+            --soft-cream: #fdfbf7;
+            --text-gray: #333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--soft-cream);
+            color: var(--text-gray);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: linear-gradient(rgba(26, 42, 108, 0.8), rgba(26, 42, 108, 0.8)), 
+                        url('https://images.unsplash.com/photo-1544427920-c49ccfb85579?auto=format&fit=crop&q=80&w=1000');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            border-bottom: 5px solid var(--primary-gold);
+        }
+
+        .header h1 {
+            font-family: 'Georgia', serif;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .header p {
+            font-style: italic;
+            font-size: 1.2rem;
+            color: var(--primary-gold);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: -30px auto 50px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .event-info {
+            text-align: center;
+            border-bottom: 2px dashed #ddd;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            color: var(--deep-blue);
+            border-left: 4px solid var(--primary-gold);
+            padding-left: 15px;
+            margin: 40px 0 20px 0;
+            font-family: 'Georgia', serif;
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+            transition: transform 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            transform: translateX(10px);
+            background-color: #fffdf5;
+        }
+
+        .time {
+            font-weight: bold;
+            color: var(--primary-gold);
+            min-width: 150px;
+        }
+
+        .activity {
+            flex-grow: 1;
+            font-weight: 500;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px;
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+        .bible-verse {
+            font-style: italic;
+            color: var(--deep-blue);
+            margin-top: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .timeline-item {
+                flex-direction: column;
+            }
+            .time {
+                margin-bottom: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header animate__animated animate__fadeIn">
+        <h1>Sr. Margret Wandera Nyongesa</h1>
+        <p>Jubilee Celebration Event Programme</p>
+    </div>
+
+    <div class="container animate__animated animate__fadeInUp">
+        <div class="event-info">
+            <p><strong>Date:</strong> 30th December, 2025</p>
+            <p><strong>Theme:</strong> A Heart of Gratitude, A Life of Service</p>
+        </div>
+
+        <h3 class="section-title">Procession from St.Michael Parish Madende</h3>
+        <div class="timeline-item">
+            <div class="time">09:00 - 10:00 AM:&nbsp;</div>
+            <div class="activity">Procession</div>
+        </div>
+        <div class="timeline-item">
+            <div class="time">10:00 - 12:00 PM:&nbsp;</div>
+            <div class="activity">Holy Mass at Karungu home Grounds</div>
+        </div>
+
+        <h3 class="section-title">The Jubilee Rites</h3>
+        <div class="timeline-item">
+            <div class="time">12:00 - 12:30 PM: &nbsp;</div>
+            <div class="activity">Introduction & Welcoming</div>
+        </div>
+        <div class="timeline-item">
+            <div class="time">12:30 - 01:15 PM: &nbsp;</div>
+            <div class="activity">
+                • Garlanding Ceremony<br>
+                • Cake Cutting<br>
+                • Awards Presentation
+            </div>
+        </div>
+
+        <h3 class="section-title">Tributes & SPeeches</h3>
+        <div class="timeline-item">
+            <div class="time">01:15 - 01:45 PM: &nbsp;</div>
+            <div class="activity">Short Speeches & Tributes</div>
+        </div>
+           <h3 class="section-title">Lunch and Refreshments</h3>
+        <div class="timeline-item">
+            <div class="time">01:45 PM:</div>
+            <div class="activity">Lunch (Jubilee Banquet)</div>
+        </div>
+        <div class="timeline-item">
+            <div class="time">02:30 PM:&nbsp;</div>
+            <div class="activity"> Closing Remarks</div>
+        </div>
+         <div class="timeline-item">
+            <div class="time">3.00 PM:&nbsp;</div>
+            <div class="activity"> Entertainment</div>
+        </div>
+
+        <div class="footer">
+            <p class="bible-verse">"The Lord has done great things for us, and we are filled with joy." <br>— Psalm 126:3</p>
+            <p>&copy; 2025 Celebration Committee</p>
+        </div>
+    </div>
+
+</body>
+</html>
+
