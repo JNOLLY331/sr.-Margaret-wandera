@@ -79,13 +79,13 @@ document.addEventListener("DOMContentLoaded", () => {
           animateCounter(document.getElementById("counter-age"), 52);
           animateCounter(document.getElementById("counter-siblings"), 7);
           animateCounter(document.getElementById("counter-parent"), 1);
-          animateCounter(document.getElementById("counter-faith"), 30);
+          animateCounter(document.getElementById("counter-faith"), 52);
 
           // Initialize PureCounter for any other elements if needed (though custom animation overrides it)
           if (window.PureCounter) {
             new PureCounter(".purecounter", {
-              duration: 2,
-              delay: 10,
+              duration: 1,
+              delay: 8,
               once: true,
             });
           }
