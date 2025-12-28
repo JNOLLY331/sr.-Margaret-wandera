@@ -314,3 +314,20 @@ function closePopup() {
     popup.classList.add('hidden');
   }
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  const duration = 8000; // 8 seconds
+  const end = Date.now() + duration;
+
+  (function frame() {
+    confetti({
+      particleCount: 6,
+      spread: 70,
+      origin: { y: 0.6 }
+    });
+
+    if (Date.now() < end) {
+      requestAnimationFrame(frame);
+    }
+  })();
+});
