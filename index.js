@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
           // Initialize PureCounter for any other elements if needed (though custom animation overrides it)
           if (window.PureCounter) {
             new PureCounter(".purecounter", {
-              duration: 1,
+              duration: 2,
               delay: 8,
               once: true,
             });
