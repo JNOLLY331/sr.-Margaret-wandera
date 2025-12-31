@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Happy New Year 2026</title>
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<!-- Confetti -->
+<script defer src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<style>
+:root {
+  --gold: #d4af37;
+  --dark: #060606;
+  --glass: rgba(255,255,255,0.08);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(circle at top, #111, #000);
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+/* Ambient background glow */
+.bg-glow {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(212,175,55,0.12), transparent 40%),
+    radial-gradient(circle at 80% 20%, rgba(212,175,55,0.08), transparent 45%);
+  z-index: -2;
+}
+
+/* Floating sparkles */
+.sparkles {
+  position: fixed;
+  inset: 0;
+  background: url("https://i.imgur.com/4NJlF8U.png") repeat;
+  opacity: 0.08;
+  animation: sparkleMove 40s linear infinite;
+  z-index: -1;
+}
+
+@keyframes sparkleMove {
+  from { background-position: 0 0; }
+  to { background-position: 2000px 2000px; }
+}
+
+/* Glass Card */
+.card {
+  position: relative;
+  width: 90%;
+  max-width: 850px;
+  padding: 40px 20px;
+  border-radius: 40px;
+  background: linear-gradient(145deg, rgba(255,255,255,0.12), rgba(255,255,255,0.02));
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(212,175,55,0.25);
+  box-shadow: 0 50px 120px rgba(0,0,0,0.9);
+  text-align: center;
+  animation: rise 1.2s ease;
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Profile */
+.profile {
+  width: 240px;
+  height: 240px;
+  margin: auto;
+  border-radius: 50%;
+  padding: 8px;
+  background: linear-gradient(135deg, var(--gold), #fff, var(--gold));
+  box-shadow: 0 0 60px rgba(212,175,55,0.7);
+}
+
+.profile img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #000;
+}
+
+/* Text */
+.name {
+  margin-top: 30px;
+  letter-spacing: 5px;
+  font-size: 0.9rem;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.year {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(4rem, 12vw, 7rem);
+  margin: 10px 0;
+  background: linear-gradient(to bottom, #fff, var(--gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 20px 60px rgba(212,175,55,0.3);
+}
+
+.headline {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+
+/* Update your existing CSS with these specific changes */
+
+.message {
+  max-width: 600px;
+  margin: 30px auto auto auto; /* Added top margin for divider */
+  font-family: 'Playfair Display', serif; /* Matching the year for elegance */
+  font-size: 1.25rem;
+  font-style: italic;
+  line-height: 1.9;
+  color: #f8f8f8;
+  opacity: 0.95;
+  position: relative;
+  padding-top: 25px;
+  border-top: 1px solid rgba(212, 175, 55, 0.3); /* Subtle gold divider */
+}
+
+/* Adding decorative "quotes" via CSS */
+.message::before {
+  content: '“';
+  font-size: 4rem;
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--gold);
+  opacity: 0.3;
+  font-family: 'Playfair Display', serif;
+}
+
+.message::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: var(--gold);
+  margin: 20px auto 0;
+  border-radius: 2px;
+  box-shadow: 0 0 10px var(--gold);
+}
+
+/* CTA */
+.button-wrap {
+  margin-top: 40px;
+}
+
+.btn {
+  padding: 16px 42px;
+  border-radius: 100px;
+  border: none;
+  background: var(--gold);
+  color: #000;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 15px 40px rgba(212,175,55,0.5);
+  transition: all .4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,.6), transparent);
+  transform: translateX(-100%);
+  transition: transform .6s;
+}
+
+.btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 70px rgba(212,175,55,0.8);
+}
+
+.btn:hover::after {
+  transform: translateX(100%);
+}
+
+/* Balloons (slower & elegant) */
+.balloon {
+  position: fixed;
+  bottom: -200px;
+  width: 60px;
+  opacity: 0.6;
+  animation: floatUp 22s linear infinite;
+}
+
+.balloon:nth-child(1) { left: 10%; animation-delay: 0s; }
+.balloon:nth-child(2) { left: 50%; animation-delay: 6s; }
+.balloon:nth-child(3) { left: 80%; animation-delay: 12s; }
+
+@keyframes floatUp {
+  from { transform: translateY(0); }
+  to { transform: translateY(-140vh); }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .card { padding: 45px 20px; }
+  .profile { width: 180px; height: 180px; }
+  .headline { font-size: 1.7rem; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg-glow"></div>
+<div class="sparkles"></div>
+
+<!-- Balloons -->
+<img src="https://i.imgur.com/9QO7YQb.png" class="balloon">
+<img src="https://i.imgur.com/9QO7YQb.png" class="balloon">
+<img src="https://i.imgur.com/9QO7YQb.png" class="balloon">
+
+<main class="card">
+  <div class="profile">
+    <img src="images/maggy.jpg" alt="  Sr. Margaret Wandera">
+  </div>
+
+  <div class="name">  Sr. Margaret Wandera</div>
+  <div class="year">2026</div>
+  <div class="headline">Happy New Year</div>
+
+  <p class="message">
+   
+  "May 2026 be a season of divine grace,fellowship, and purposeful life that glorify our Creator and uplift our community."
+
+  </p>
+
+  <div class="button-wrap">
+    <button class="btn" onclick="celebrate()">Celebrate</button>
+  </div>
+</main>
+
+<script>
+let firing = false;
+
+function celebrate() {
+  if (firing) return;
+  firing = true;
+
+  const end = Date.now() + 6000;
+  const colors = ['#d4af37', '#ffffff', '#f5e1a4'];
+
+  (function frame() {
+    confetti({ particleCount: 6, angle: 60, spread: 70, origin: { x: 0 }, colors });
+    confetti({ particleCount: 6, angle: 120, spread: 70, origin: { x: 1 }, colors });
+
+    if (Date.now() < end) requestAnimationFrame(frame);
+    else firing = false;
+  })();
+}
+
+window.onload = celebrate;
+</script>
+
+</body>
+</html>
